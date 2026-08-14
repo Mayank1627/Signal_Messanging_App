@@ -1,6 +1,7 @@
 // frontend/src/pages/Landing.jsx
 import { Link } from 'react-router-dom';
 import { MessageSquare, Phone, Shield, Users, Globe, Lock, Mic } from 'lucide-react';
+import global from '../assets/logo.png';
 
 export default function Landing() {
   return (
@@ -90,7 +91,7 @@ export default function Landing() {
               {/* Image: Earth */}
               <div className="bg-[#eaf3ff] rounded-2xl shadow-lg p-4 flex items-center justify-center h-48">
                 <img 
-                  src="https://z-cdn-media.chatglm.cn/files/33a58747-1027-474d-a7c4-a972eee4ee5f.png" 
+                  src={global} 
                   alt="Global Connectivity" 
                   className="max-h-full w-auto object-contain"
                 />
