@@ -1,6 +1,6 @@
 // frontend/src/pages/Landing.jsx
 import { Link } from 'react-router-dom';
-import { MessageSquare, Phone, Shield, Users, Globe, Lock } from 'lucide-react';
+import { MessageSquare, Phone, Shield, Users, Globe, Lock, Mic } from 'lucide-react';
 
 export default function Landing() {
   return (
@@ -53,65 +53,92 @@ export default function Landing() {
         </div>
       </div>
 
-      {/* Features Section (Alternating Layout) */}
-      <div className="py-20 px-4 space-y-24 max-w-5xl mx-auto">
-        
-        {/* Feature 1: Say Anything */}
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 text-center md:text-left">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Say Anything</h2>
-            <p className="text-gray-600 text-lg">
-              Share text, voice messages, photos, videos, and more without sacrificing privacy.
+      {/* Features Section (2x2 Grid with Mock UIs) */}
+      <div className="bg-white py-20 px-4">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+          
+          {/* Feature 1: Say Anything */}
+          <div className="flex flex-col items-center text-center">
+            <div className="w-full max-w-xs mb-8">
+              {/* Mock UI: Say Anything */}
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-lg p-4 flex flex-col space-y-3">
+                <div className="self-start bg-gray-100 rounded-lg p-2 text-sm text-gray-700 max-w-[80%]">
+                  When are we going hiking?
+                </div>
+                <div className="self-end bg-chat-outgoing rounded-lg p-2 flex items-center space-x-2 max-w-[60%]">
+                  <Mic className="w-4 h-4 text-gray-600" />
+                  <div className="flex items-end space-x-0.5 h-4">
+                    <span className="w-0.5 h-2 bg-gray-500 rounded-full"></span>
+                    <span className="w-0.5 h-3 bg-gray-500 rounded-full"></span>
+                    <span className="w-0.5 h-4 bg-gray-500 rounded-full"></span>
+                    <span className="w-0.5 h-2 bg-gray-500 rounded-full"></span>
+                    <span className="w-0.5 h-3 bg-gray-500 rounded-full"></span>
+                  </div>
+                  <span className="text-xs text-gray-600">0:05</span>
+                </div>
+              </div>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">Say Anything</h2>
+            <p className="text-gray-600 text-base max-w-xs">
+              Send and receive messages, photos, videos, documents, and voice messages.
             </p>
           </div>
-          <div className="flex-1 flex justify-center">
-            <div className="w-64 h-64 bg-blue-50 rounded-3xl flex items-center justify-center shadow-inner">
-              <MessageSquare className="w-24 h-24 text-signal-blue" />
-            </div>
-          </div>
-        </div>
 
-        {/* Feature 2: Speak Freely */}
-        <div className="flex flex-col-reverse md:flex-row items-center gap-12">
-          <div className="flex-1 flex justify-center">
-            <div className="w-64 h-64 bg-blue-50 rounded-3xl flex items-center justify-center shadow-inner">
-              <Phone className="w-24 h-24 text-signal-blue" />
+          {/* Feature 2: Speak Freely */}
+          <div className="flex flex-col items-center text-center">
+            <div className="w-full max-w-xs mb-8">
+              {/* Mock UI: Speak Freely */}
+              <div className="bg-gray-900 rounded-2xl shadow-lg p-2 grid grid-cols-2 gap-2 aspect-video">
+                <div className="bg-gray-700 rounded-md flex items-center justify-center text-white text-xs font-bold">A</div>
+                <div className="bg-gray-700 rounded-md flex items-center justify-center text-white text-xs font-bold">B</div>
+                <div className="bg-gray-700 rounded-md flex items-center justify-center text-white text-xs font-bold">C</div>
+                <div className="bg-gray-700 rounded-md flex items-center justify-center text-white text-xs font-bold">D</div>
+              </div>
             </div>
-          </div>
-          <div className="flex-1 text-center md:text-left">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Speak Freely</h2>
-            <p className="text-gray-600 text-lg">
-              Crystal-clear voice and video calls. Keep in touch with friends and family without limits.
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">Speak Freely</h2>
+            <p className="text-gray-600 text-base max-w-xs">
+              Talk freely. Make crystal-clear voice and video calls without long-distance charges.
             </p>
           </div>
-        </div>
 
-        {/* Feature 3: Make Privacy Stick */}
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 text-center md:text-left">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Make Privacy Stick</h2>
-            <p className="text-gray-600 text-lg">
-              Encryption ensures that only the people you are talking to can read your messages.
+          {/* Feature 3: Make Privacy Stick */}
+          <div className="flex flex-col items-center text-center">
+            <div className="w-full max-w-xs mb-8">
+              {/* Mock UI: Make Privacy Stick */}
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-lg p-4 flex flex-col space-y-3 items-center">
+                <div className="bg-white rounded-lg p-1 shadow-sm border border-gray-100 text-4xl">
+                  😎
+                </div>
+                <div className="bg-yellow-300 rounded-md px-3 py-1 text-sm font-bold text-gray-800 shadow-sm">
+                  FRIDAY!
+                </div>
+              </div>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">Make Privacy Stick</h2>
+            <p className="text-gray-600 text-base max-w-xs">
+              Add a new layer of expression to your conversations with encrypted stickers.
             </p>
           </div>
-          <div className="flex-1 flex justify-center">
-            <div className="w-64 h-64 bg-blue-50 rounded-3xl flex items-center justify-center shadow-inner">
-              <Shield className="w-24 h-24 text-signal-blue" />
-            </div>
-          </div>
-        </div>
 
-        {/* Feature 4: Get Together with Groups */}
-        <div className="flex flex-col-reverse md:flex-row items-center gap-12">
-          <div className="flex-1 flex justify-center">
-            <div className="w-64 h-64 bg-blue-50 rounded-3xl flex items-center justify-center shadow-inner">
-              <Users className="w-24 h-24 text-signal-blue" />
+          {/* Feature 4: Get Together with Groups */}
+          <div className="flex flex-col items-center text-center">
+            <div className="w-full max-w-xs mb-8">
+              {/* Mock UI: Get Together with Groups */}
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-lg p-4 flex flex-col space-y-2">
+                <div className="self-start bg-gray-100 rounded-lg p-2 text-sm text-gray-700 max-w-[80%]">
+                  See you there!
+                </div>
+                <div className="self-end bg-chat-outgoing rounded-lg p-2 text-sm text-gray-700 max-w-[70%]">
+                  Sounds great, I'll bring snacks.
+                </div>
+                <div className="self-start bg-gray-100 rounded-lg p-2 text-sm text-gray-700 max-w-[60%]">
+                  Awesome!
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="flex-1 text-center md:text-left">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Get Together with Groups</h2>
-            <p className="text-gray-600 text-lg">
-              Stay connected with up to 1000 friends and family in a secure group chat.
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">Get Together with Groups</h2>
+            <p className="text-gray-600 text-base max-w-xs">
+              Keep in touch with friends and family. Get together and stay connected with groups.
             </p>
           </div>
         </div>
