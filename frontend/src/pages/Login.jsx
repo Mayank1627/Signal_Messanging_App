@@ -1,5 +1,5 @@
 // frontend/src/pages/Login.jsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ArrowLeft, MessageSquare } from 'lucide-react';
 import { authAPI } from '../services/api';
@@ -13,7 +13,12 @@ export default function Login() {
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, user } = useAuth();
+
+  // If already logged in, go straight to app
+  useEffect(() => {
+    if (user) navigate('/app');
+  }, [user, navigate]);
 
   const handleRequestOtp = async (e) => {
     e.preventDefault();
@@ -21,7 +26,7 @@ export default function Login() {
     setError('');
     try {
       await authAPI.requestOTP(phoneNumber);
-      setStep(2); // Move to OTP entry step
+      setStep(2);
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to send OTP');
     } finally {
@@ -37,12 +42,10 @@ export default function Login() {
       const res = await authAPI.verifyOTP(phoneNumber, otp);
       
       if (res.data.isNewUser) {
-        // Navigate to profile setup, pass phone number via state
         navigate('/register', { state: { phone_number: phoneNumber } });
       } else {
-        // Existing user -> Log them in
         login(res.data.user, res.data.token);
-        navigate('/');
+        navigate('/app'); // <-- Updated to /app
       }
     } catch (err) {
       setError(err.response?.data?.message || 'Invalid OTP');

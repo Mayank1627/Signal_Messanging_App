@@ -15,10 +15,8 @@ export default function Register() {
   const location = useLocation();
   const { login } = useAuth();
 
-  // Get phone number from route state (passed from Login page)
   const phoneNumber = location.state?.phone_number;
 
-  // If user tries to access this page directly without phone number, send them back
   if (!phoneNumber) {
     navigate('/login');
   }
@@ -29,7 +27,6 @@ export default function Register() {
     setError('');
     
     try {
-      // If no avatar URL provided, generate a default one based on name
       const finalAvatar = avatarUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(displayName)}`;
       
       const res = await authAPI.register({ 
@@ -38,9 +35,8 @@ export default function Register() {
         avatar_url: finalAvatar 
       });
       
-      // Log the user in with the returned token and redirect
       login(res.data.user, res.data.token);
-      navigate('/');
+      navigate('/app'); // <-- Updated to /app
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed');
     } finally {

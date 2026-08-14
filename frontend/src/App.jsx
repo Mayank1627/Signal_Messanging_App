@@ -4,6 +4,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import { SocketProvider } from './context/SocketContext';
 
 // Page imports
+import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import MainApp from './pages/MainApp';
@@ -26,7 +27,6 @@ const ProtectedRoute = ({ children }) => {
     return <Navigate to="/login" replace />;
   }
 
-  // Wrap children with SocketProvider so socket connects only when logged in
   return <SocketProvider>{children}</SocketProvider>;
 };
 
@@ -36,12 +36,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* Public Routes */}
+          <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           
           {/* Protected Routes */}
           <Route 
-            path="/" 
+            path="/app" 
             element={
               <ProtectedRoute>
                 <MainApp />
