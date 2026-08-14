@@ -1,10 +1,10 @@
 // frontend/src/pages/Landing.jsx
 import { Link } from 'react-router-dom';
-import { MessageSquare, Phone, Video, Users, Shield, Globe } from 'lucide-react';
+import { MessageSquare, Phone, Shield, Users, Globe, Lock } from 'lucide-react';
 
 export default function Landing() {
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col font-sans">
       {/* Navbar */}
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -12,19 +12,19 @@ export default function Landing() {
             <MessageSquare className="w-8 h-8 text-signal-blue" />
             <span className="font-bold text-xl text-gray-900">Signal</span>
           </div>
-          <div className="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-600">
+          <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-600">
             <a href="#" className="hover:text-gray-900">Get Signal</a>
             <a href="#" className="hover:text-gray-900">Blog</a>
             <a href="#" className="hover:text-gray-900">Docs</a>
             <a href="#" className="hover:text-gray-900">Donate</a>
-            <Link to="/login" className="bg-signal-blue text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Start Messaging</Link>
+            <Link to="/login" className="bg-signal-blue text-white px-5 py-2 rounded-md hover:bg-blue-700 transition">Start Messaging</Link>
           </div>
           <Link to="/login" className="md:hidden bg-signal-blue text-white px-4 py-2 rounded-md text-sm">Start</Link>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-b from-blue-50 to-white py-16 md:py-24 flex-1">
+      <div className="bg-gradient-to-b from-blue-50 to-white py-20 md:py-32">
         <div className="max-w-4xl mx-auto text-center px-4">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">Speak Freely</h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
@@ -38,7 +38,7 @@ export default function Landing() {
           <div className="mt-16 flex justify-center space-x-4 md:space-x-8">
             <div className="w-40 h-72 md:w-52 md:h-96 bg-gray-800 rounded-[2rem] p-2 shadow-xl transform rotate-[-6deg]">
               <div className="w-full h-full bg-chat-bg rounded-[1.5rem] flex flex-col items-center justify-center p-4">
-                <Video className="w-12 h-12 text-signal-blue mb-4" />
+                <Phone className="w-12 h-12 text-signal-blue mb-4" />
                 <div className="w-full bg-white rounded-lg p-2 text-xs text-gray-500 text-center">Video call connected...</div>
               </div>
             </div>
@@ -53,91 +53,142 @@ export default function Landing() {
         </div>
       </div>
 
-      {/* Features Section */}
-      <div className="max-w-6xl mx-auto py-16 px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div className="flex flex-col items-center text-center">
-          <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4">
-            <MessageSquare className="w-8 h-8 text-signal-blue" />
+      {/* Features Section (Alternating Layout) */}
+      <div className="py-20 px-4 space-y-24 max-w-5xl mx-auto">
+        
+        {/* Feature 1: Say Anything */}
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1 text-center md:text-left">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Say Anything</h2>
+            <p className="text-gray-600 text-lg">
+              Share text, voice messages, photos, videos, and more without sacrificing privacy.
+            </p>
           </div>
-          <h3 className="text-xl font-semibold mb-2 text-gray-900">Say Anything</h3>
-          <p className="text-gray-600 text-sm">Share text, voice messages, photos, videos, and more without sacrificing privacy.</p>
+          <div className="flex-1 flex justify-center">
+            <div className="w-64 h-64 bg-blue-50 rounded-3xl flex items-center justify-center shadow-inner">
+              <MessageSquare className="w-24 h-24 text-signal-blue" />
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col items-center text-center">
-          <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4">
-            <Phone className="w-8 h-8 text-signal-blue" />
+
+        {/* Feature 2: Speak Freely */}
+        <div className="flex flex-col-reverse md:flex-row items-center gap-12">
+          <div className="flex-1 flex justify-center">
+            <div className="w-64 h-64 bg-blue-50 rounded-3xl flex items-center justify-center shadow-inner">
+              <Phone className="w-24 h-24 text-signal-blue" />
+            </div>
           </div>
-          <h3 className="text-xl font-semibold mb-2 text-gray-900">Speak Freely</h3>
-          <p className="text-gray-600 text-sm">Crystal-clear voice and video calls. Keep in touch with friends and family without limits.</p>
+          <div className="flex-1 text-center md:text-left">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Speak Freely</h2>
+            <p className="text-gray-600 text-lg">
+              Crystal-clear voice and video calls. Keep in touch with friends and family without limits.
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col items-center text-center">
-          <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4">
-            <Shield className="w-8 h-8 text-signal-blue" />
+
+        {/* Feature 3: Make Privacy Stick */}
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1 text-center md:text-left">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Make Privacy Stick</h2>
+            <p className="text-gray-600 text-lg">
+              Encryption ensures that only the people you are talking to can read your messages.
+            </p>
           </div>
-          <h3 className="text-xl font-semibold mb-2 text-gray-900">Make Privacy Stick</h3>
-          <p className="text-gray-600 text-sm">Encryption ensures that only the people you are talking to can read your messages.</p>
+          <div className="flex-1 flex justify-center">
+            <div className="w-64 h-64 bg-blue-50 rounded-3xl flex items-center justify-center shadow-inner">
+              <Shield className="w-24 h-24 text-signal-blue" />
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col items-center text-center">
-          <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4">
-            <Users className="w-8 h-8 text-signal-blue" />
+
+        {/* Feature 4: Get Together with Groups */}
+        <div className="flex flex-col-reverse md:flex-row items-center gap-12">
+          <div className="flex-1 flex justify-center">
+            <div className="w-64 h-64 bg-blue-50 rounded-3xl flex items-center justify-center shadow-inner">
+              <Users className="w-24 h-24 text-signal-blue" />
+            </div>
           </div>
-          <h3 className="text-xl font-semibold mb-2 text-gray-900">Get Together with Groups</h3>
-          <p className="text-gray-600 text-sm">Stay connected with up to 1000 friends and family in a secure group chat.</p>
+          <div className="flex-1 text-center md:text-left">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Get Together with Groups</h2>
+            <p className="text-gray-600 text-lg">
+              Stay connected with up to 1000 friends and family in a secure group chat.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* No Ads Section */}
-      <div className="bg-[#2c1c4e] text-white py-16 px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">No ads. No trackers. No kidding.</h2>
-        <p className="max-w-2xl mx-auto text-gray-300">There is no tracking, no ads, no bots. Just a simple, secure messaging app.</p>
+      {/* No Ads Section (Purple) */}
+      <div className="bg-[#3a1d6d] text-white py-20 px-4">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1 text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">No ads. No trackers. No kidding.</h2>
+            <p className="text-purple-100 text-lg max-w-md">
+              There is no tracking, no ads, no bots. Just a simple, secure messaging app.
+            </p>
+          </div>
+          <div className="flex-1 flex justify-center">
+            <div className="w-64 h-64 bg-white/10 rounded-3xl flex items-center justify-center backdrop-blur-sm border border-white/20">
+              <Lock className="w-24 h-24 text-white" />
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Free Section */}
-      <div className="bg-signal-blue text-white py-16 px-4 text-center">
-        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Globe className="w-8 h-8" />
+      {/* Free Section (Blue) */}
+      <div className="bg-[#eaf3ff] py-20 px-4 text-center">
+        <div className="max-w-2xl mx-auto">
+          <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+            <Globe className="w-10 h-10 text-signal-blue" />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Free for Everyone</h2>
+          <p className="text-gray-600 text-lg mb-8">
+            Signal is an independent nonprofit. We're not tied to major tech companies, and we rely on donations to keep going.
+          </p>
+          <button className="bg-signal-blue text-white px-8 py-3 rounded-md font-medium text-lg hover:bg-blue-700 transition shadow-md">
+            Donate to Signal
+          </button>
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Free for Everyone</h2>
-        <p className="max-w-2xl mx-auto mb-8 text-blue-50">Signal is an independent nonprofit. We're not tied to major tech companies, and we rely on donations to keep going.</p>
-        <button className="bg-white text-signal-blue px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition">Donate to Signal</button>
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12 px-4">
+      <footer className="bg-[#111b21] text-gray-400 py-16 px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center space-x-2 mb-2">
+            <div className="flex items-center space-x-2 mb-4">
               <MessageSquare className="w-6 h-6 text-signal-blue" />
               <span className="font-bold text-white text-lg">Signal</span>
             </div>
             <p className="text-xs">© 2013 - 2026 Signal Clone, a 501c3 nonprofit.</p>
+            <p className="text-xs mt-2">press@signal.org</p>
           </div>
           <div>
-            <h4 className="font-semibold text-white mb-3">Organization</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-semibold text-white mb-4">Organization</h4>
+            <ul className="space-y-3 text-sm">
               <li><a href="#" className="hover:text-white">Donate</a></li>
               <li><a href="#" className="hover:text-white">Careers</a></li>
               <li><a href="#" className="hover:text-white">Blog</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-white mb-3">Download</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-semibold text-white mb-4">Download</h4>
+            <ul className="space-y-3 text-sm">
               <li><a href="#" className="hover:text-white">Android</a></li>
-              <li><a href="#" className="hover:text-white">iOS</a></li>
+              <li><a href="#" className="hover:text-white">iPhone & iPad</a></li>
               <li><a href="#" className="hover:text-white">Desktop</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-white mb-3">Social</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-semibold text-white mb-4">Social</h4>
+            <ul className="space-y-3 text-sm">
+              <li><a href="#" className="hover:text-white">Bluesky</a></li>
+              <li><a href="#" className="hover:text-white">GitHub</a></li>
               <li><a href="#" className="hover:text-white">Twitter</a></li>
-              <li><a href="#" className="hover:text-white">Instagram</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-white mb-3">Help</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white">Support</a></li>
+            <h4 className="font-semibold text-white mb-4">Help</h4>
+            <ul className="space-y-3 text-sm">
+              <li><a href="#" className="hover:text-white">Support Center</a></li>
               <li><a href="#" className="hover:text-white">Community</a></li>
             </ul>
           </div>
