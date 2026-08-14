@@ -84,20 +84,21 @@ export default function Landing() {
             </p>
           </div>
 
-          {/* Feature 2: Speak Freely */}
+          {/* Feature 2: Free for Everyone (Replaced Video Call) */}
           <div className="flex flex-col items-center text-center">
             <div className="w-full max-w-xs mb-8">
-              {/* Mock UI: Speak Freely */}
-              <div className="bg-gray-900 rounded-2xl shadow-lg p-2 grid grid-cols-2 gap-2 aspect-video">
-                <div className="bg-gray-700 rounded-md flex items-center justify-center text-white text-xs font-bold">A</div>
-                <div className="bg-gray-700 rounded-md flex items-center justify-center text-white text-xs font-bold">B</div>
-                <div className="bg-gray-700 rounded-md flex items-center justify-center text-white text-xs font-bold">C</div>
-                <div className="bg-gray-700 rounded-md flex items-center justify-center text-white text-xs font-bold">D</div>
+              {/* Image: Earth */}
+              <div className="bg-[#eaf3ff] rounded-2xl shadow-lg p-4 flex items-center justify-center h-48">
+                <img 
+                  src="https://z-cdn-media.chatglm.cn/files/33a58747-1027-474d-a7c4-a972eee4ee5f.png" 
+                  alt="Global Connectivity" 
+                  className="max-h-full w-auto object-contain"
+                />
               </div>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">Speak Freely</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">Free for Everyone</h2>
             <p className="text-gray-600 text-base max-w-xs">
-              Talk freely. Make crystal-clear voice and video calls without long-distance charges.
+              Signal is an independent nonprofit. We're not tied to major tech companies, and we rely on donations to keep going.
             </p>
           </div>
 
